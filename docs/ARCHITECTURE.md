@@ -141,17 +141,55 @@ skill:
     - executor
 ```
 
-## Self-Evolution Cycle
+## 12-Dimension Health Check (Evolver)
+
+Evolver Worker runs periodic patrols across 12 dimensions, creating a closed-loop "AI managing AI" self-evolution cycle.
+
+| # | Dimension | Key Metric | Warning Threshold | Auto-Action |
+|---|-----------|-----------|------------------|-------------|
+| 1 | 🧠 **Memory Usage** | Shared Memory水位  | >85% | Trigger compression + archival |
+| 2 | ⚡ **API Quota** | Remaining provider quota | <20% | Auto-switch to backup provider |
+| 3 | 📊 **Error Rate** | Worker failure count / total | >5% | Enable degraded retry strategy |
+| 4 | ⏱ **Latency** | Average worker response time | >2,000ms | Scale out worker pool |
+| 5 | 🌐 **Communication QoS** | Worker ↔ Memory round-trip | >500ms | Switch communication protocol |
+| 6 | 🔄 **Backlog Depth** | Task queue accumulation | >50 items | Elevate scheduling priority |
+| 7 | 📈 **Accuracy Drift** | Output vs expected deviation | <80% | Trigger retraining |
+| 8 | 💾 **Storage Pressure** | Long-term memory capacity | >90% | Auto-archive and clean stale data |
+| 9 | 🔌 **Skill Integrity** | Installed skill availability | Any failure | Restart skill container |
+| 10 | 📝 **Log Completeness** | Event log loss rate | >1% | Rebuild index |
+| 11 | 🔐 **Security Audit** | Anomalous access patterns | On detection | Isolate suspicious worker |
+| 12 | 🌡 **System Load** | CPU/memory global utilization | >80% | Rate-limit + graceful degradation |
+
+### Self-Evolution Cycle
 
 ```
-1. Monitor ──► Detect anomaly (e.g., memory usage > 90%)
-2. Evolver ──► Analyze root cause
-3. Evolver ──► Propose fix (e.g., add caching skill)
-4. Arbiter ──► Approve or reject
-5. Evolver ──► Execute fix
-6. Monitor ──► Verify improvement
-7. Log ──► Document the change
+Monitor ──► Detect anomaly (e.g., memory usage > 85%)
+    │
+    ▼
+Evolver ──► Analyze root cause (Skill_heavy_logging consuming 40%)
+    │
+    ▼
+Evolver ──► Propose fix (Add caching layer, enable compression)
+    │
+    ▼
+Arbiter ──► Approve or reject
+    │         If approve: mark for hot-reload
+    │         If reject:  log reason, flag for human review
+    ▼
+Evolver ──► Execute fix (Configure cache TTL, enable compression)
+    │
+    ▼
+Monitor ──► Verify improvement (Memory now at 62%)
+    │
+    ▼
+Log ──► Document change in evolution log
+         - Action: caching optimization
+         - Before: 85% → After: 62%
+         - Tokens saved: ~1,200 per hour
+         - Timestamp + worker identity
 ```
+
+This loop runs on a tunable schedule (default: every 10 minutes). The system accumulates an "evolution memory" that informs future decisions — if the same anomaly pattern recurs, the fix applies faster.
 
 ## Failure Recovery
 
