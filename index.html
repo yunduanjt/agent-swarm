@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Swarm — 智能体蜂群</title>
+    <meta name="description" content="Agent Swarm: 去中心化 AI 协作平台。让多个专业化 AI Agent 像蜂群一样协同工作，解决复杂长链推理任务。">
+    <meta property="og:title" content="Agent Swarm — 智能体蜂群">
+    <meta property="og:description" content="去中心化 AI 协作平台 | Multi-Agent Swarm Collaboration Framework">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="docs/assets/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <span class="nav-logo">🐝 AS</span>
+            <div class="nav-links">
+                <a href="#architecture">架构</a>
+                <a href="#patterns">协作模式</a>
+                <a href="#features">特性</a>
+                <a href="#roadmap">路线图</a>
+                <a href="https://github.com/yunduanjt/agent-swarm" target="_blank" class="nav-gh">GitHub ↗</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🚀 正在建设中</div>
+            <h1 class="hero-title">
+                <span class="gradient-text">智能体蜂群</span>
+            </h1>
+            <p class="hero-subtitle">Agent Swarm</p>
+            <p class="hero-desc">
+                去中心化 AI 协作平台。<br>
+                让多个专业化 AI Agent 像蜂群一样协同工作，
+                <span class="highlight">1+1 &gt; 3</span>。
+            </p>
+            <div class="hero-actions">
+                <a href="https://github.com/yunduanjt/agent-swarm" class="btn btn-primary" target="_blank">
+                    <span class="btn-icon">🐙</span> GitHub 仓库
+                </a>
+                <a href="#architecture" class="btn btn-secondary">
+                    <span class="btn-icon">📖</span> 了解架构
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pain-points">
+        <div class="container">
+            <h2 class="section-title">核心痛点</h2>
+            <p class="section-desc">为什么需要智能体蜂群？</p>
+            <div class="cards-grid">
+                <div class="card pain-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>上下文溢出</h3>
+                    <p>单 Agent 在一个长对话中必然丢失早期上下文。任务越长，效果越差。蜂群将长链拆解，每个 Agent 只关注自己负责的环节。</p>
+                </div>
+                <div class="card pain-card">
+                    <div class="card-icon">🔧</div>
+                    <h3>工具调度混乱</h3>
+                    <p>30+ 工具的用法塞进一个 Agent 的 Prompt 里，调用准确率随工具数指数下降。蜂群每个 Worker 只装配专属工具集，降低认知负载。</p>
+                </div>
+                <div class="card pain-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>目标偏移</h3>
+                    <p>长链推理中 Agent 逐渐忘记初始目标，产出的东西和需求不匹配。共享知识库的持久化中间结果让推理路径始终可回溯。</p>
+                </div>
+                <div class="card pain-card">
+                    <div class="card-icon">👤</div>
+                    <h3>一人公司瓶颈</h3>
+                    <p>个人开发者想做内容 + 开发 + 运营 + 客服，传统模式只能串行。"干了这个就干不了那个"。蜂群并行处理，时间利用率翻倍。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="architecture">
+        <div class="container">
+            <h2 class="section-title">架构设计</h2>
+            <p class="section-desc">四层架构 · 各司其职</p>
+            <div class="arch-layers">
+                <div class="arch-layer layer-orch">
+                    <div class="layer-label">🐝 Orchestrator Layer</div>
+                    <div class="layer-items">
+                        <span class="layer-item">Router</span>
+                        <span class="layer-item">Arbiter</span>
+                        <span class="layer-item">Monitor</span>
+                        <span class="layer-item">Task Queue</span>
+                    </div>
+                </div>
+                <div class="arch-arrow">⬇ 任务分解 & 调度</div>
+                <div class="arch-layer layer-worker">
+                    <div class="layer-label">🐝 Worker Layer</div>
+                    <div class="layer-items">
+                        <span class="layer-item">Research</span>
+                        <span class="layer-item">Creative</span>
+                        <span class="layer-item">Executor</span>
+                        <span class="layer-item">Evolver</span>
+                    </div>
+                </div>
+                <div class="arch-arrow">⬇ 结果持久化</div>
+                <div class="arch-layer layer-memory">
+                    <div class="layer-label">🧠 Memory Layer</div>
+                    <div class="layer-items">
+                        <span class="layer-item">Short-term</span>
+                        <span class="layer-item">Long-term</span>
+                        <span class="layer-item">Shared WS</span>
+                        <span class="layer-item">Episodic Log</span>
+                    </div>
+                </div>
+                <div class="arch-arrow">⬇ 工具加持</div>
+                <div class="arch-layer layer-skill">
+                    <div class="layer-label">🔧 Skill Layer</div>
+                    <div class="layer-items">
+                        <span class="layer-item">Browser Auto</span>
+                        <span class="layer-item">Web Search</span>
+                        <span class="layer-item">Doc Gen</span>
+                        <span class="layer-item">30+ More</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="patterns">
+        <div class="container">
+            <h2 class="section-title">协作模式</h2>
+            <p class="section-desc">三种核心协作机制</p>
+            <div class="patterns-grid">
+                <div class="pattern-card">
+                    <div class="pattern-number">01</div>
+                    <h3>串联链式推理</h3>
+                    <div class="pattern-flow">
+                        <span class="flow-node">📊 研究</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">✍️ 创作</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">🚀 执行</span>
+                    </div>
+                    <p>Agent A 的输出成为 Agent B 的输入。每一步结果写入共享知识库，从此告别"遗忘"问题。</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">02</div>
+                    <h3>并行扇出 + 合并</h3>
+                    <div class="pattern-flow pattern-fan">
+                        <span class="flow-node">📡 任务</span>
+                        <div class="fan-branches">
+                            <span class="flow-node small">财务分析</span>
+                            <span class="flow-node small">市场分析</span>
+                            <span class="flow-node small">产品分析</span>
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">📋 合并</span>
+                    </div>
+                    <p>一个大任务分解为多个独立子任务，多 Agent 并行处理，最后 Orchestrator 自动归并去重。</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">03</div>
+                    <h3>投票共识机制</h3>
+                    <div class="pattern-flow">
+                        <span class="flow-node">🔢 Agent A</span>
+                        <span class="flow-node">🔢 Agent B</span>
+                        <span class="flow-node">🔢 Agent C</span>
+                    </div>
+                    <p>关键决策由多个 Agent 独立建议后加权投票，有效降低单 Agent 的幻觉风险。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="features">
+        <div class="container">
+            <h2 class="section-title">系统特性</h2>
+            <p class="section-desc">让蜂群自我进化</p>
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="feature-icon">🩺</span>
+                    <div>
+                        <h3>心跳自检</h3>
+                        <p>12 维度健康巡检：系统负载、API 余额、上下文水位、技能健康度等。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🧬</span>
+                    <div>
+                        <h3>自我进化</h3>
+                        <p>进化 Agent 定期评估成员表现，自动安装/升级 Skill，优化蜂群拓扑。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📦</span>
+                    <div>
+                        <h3>技能热插拔</h3>
+                        <p>30+ 可组合 Skill，Worker Agent 按需装配，运行时插拔不影响其他成员。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔄</span>
+                    <div>
+                        <h3>失败回滚</h3>
+                        <p>子任务失败自动重试（指数退避）、降级或切换备用 Worker，容错设计。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🌐</span>
+                    <div>
+                        <h3>无状态通信</h3>
+                        <p>Agent 之间不直接对话，全部通过共享知识库交换数据，杜绝死循环和上下文污染。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <div>
+                        <h3>性能可观测</h3>
+                        <p>每个 Agent 的响应时间、Token 消耗、成功率均可追踪，持续优化。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">路线图</h2>
+            <p class="section-desc">从地基到生态</p>
+            <div class="timeline">
+                <div class="timeline-item active">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Phase 1</span>
+                        <h3>Foundation 🏗️</h3>
+                        <p>项目脚手架 · 文档 · 演示页</p>
+                        <span class="timeline-status current">进行中</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Phase 2</span>
+                        <h3>Workers 🐝</h3>
+                        <p>研究型 · 创作型 · 执行型 · 进化型 Worker 实现</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Phase 3</span>
+                        <h3>Coordination 🔄</h3>
+                        <p>三种协作模式 · 心跳监控 · 故障恢复</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Phase 4</span>
+                        <h3>Self-Evolution 🧬</h3>
+                        <p>自动巡检 · 技能升级 · 性能仪表盘</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Phase 5</span>
+                        <h3>Production 🚀</h3>
+                        <p>Web UI · 多用户 · 插件市场 · 完善可观测性</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-logo">🐝 Agent Swarm</p>
+                <p class="footer-tagline">去中心化 AI 协作平台 · 让智能体像蜂群一样思考</p>
+                <p class="footer-links">
+                    <a href="https://github.com/yunduanjt/agent-swarm">GitHub</a>
+                    <span class="sep">·</span>
+                    <a href="https://github.com/yunduanjt/agent-swarm/issues">Issues</a>
+                    <span class="sep">·</span>
+                    <a href="mailto:88@jingdo.vip">Contact</a>
+                </p>
+                <p class="footer-meta">Built with 🐝 by an AI Agent · 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="docs/assets/main.js"></script>
+</body>
+</html>
